@@ -1,4 +1,4 @@
-const NEWS_URL = 'https://newsapi.org/v2/everything';
+const NEWS_URL = 'https://newsapi.org/v2/top-headlines';
 const API_KEY = config.MY_KEY
 
 function getDataFromApi(searchTerm, callback){
@@ -16,10 +16,12 @@ function displayNewsSearchData(data){
 }
 
 function watchSubmit(){
-  $('.js-search-form').submit(event => {
-    event.prevenDefault();
+  $('.js-search-form').submit(function(event){
+    event.preventDefault();
     const queryTarget = $(event.currentTarget).find('.js-query');
     const query = queryTarget.val();
+
+    console.log(`submit query: ${query}`);
 
     //clear out input
     queryTarget.val("");
