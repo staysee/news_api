@@ -1,0 +1,23 @@
+.query {
+  display: block;
+}
+
+button {
+  display: block;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-item {
+  border: 2px solid black;
+  width: 300px;
+  margin: 25px auto;
+}
+
+.article-pic {
+  max-width: 100%;
+  max-height: 100%;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>News API</title>
+  <title>NewsPik</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSS -->
@@ -9,35 +9,38 @@
 </head>
 <body>
 
+  <header>
+    <h1>NewsPik</h1>
+  </header>
+
 <form class="js-search-form">
   <label>
-    <input class="js-query" type="serach">
+    <input class="query js-query" type="search">
   </label>
 
   <label>
-    <input type="checkbox">Entertainment
+    <input type="checkbox" id="entertainment" name="category" value="entertainment">Entertainment
   </label>
   <label>
-    <input type="checkbox">Sports
+    <input type="checkbox" id="sports" name="category" value="sports">Sports
   </label>
   <label>
-    <input type="checkbox">Technology
+    <input type="checkbox" id="technology" name="category" value="technology">Technology
   </label>
   <label>
-    <input type="checkbox">Finance
+    <input type="checkbox" id="finance" name="category" value="finance">Finance
   </label>
   <label>
-    <input type="checkbox">Health & Sciences
+    <input type="checkbox" id="health-science" name="category" value="health-science">Health & Sciences
   </label>
   <label>
-    <input type="checkbox">Travel
+    <input type="checkbox" id="travel" name="category" value="travel">Travel
   </label>
 
   <button role="button" type="submit">Search</button>
 </form>
 
-<main role="main" class="articles">
-</main>
+<div class="results"></div>
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
