@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>NewsPik</title>
+  <title>NewsRoulette</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <h1>NewsPik</h1>
+  <header role="banner">
+    <h1>NewsRoulette</h1>
   </header>
 
-<form class="js-search-form">
-  <label>
-    <input class="query js-query" type="search">
-  </label>
+  <main role="main">
+    <form class="js-search-form">
+      <fieldset id="keyword-query">
+        <p>Search by keyword:</p>
+        <label>
+          <input class="query js-query" type="search">
+        </label>
+      </fieldset>
 
-  <label>
-    <input type="checkbox" id="entertainment" name="category" value="entertainment">Entertainment
-  </label>
-  <label>
-    <input type="checkbox" id="sports" name="category" value="sports">Sports
-  </label>
-  <label>
-    <input type="checkbox" id="technology" name="category" value="technology">Technology
-  </label>
-  <label>
-    <input type="checkbox" id="finance" name="category" value="finance">Finance
-  </label>
-  <label>
-    <input type="checkbox" id="health-science" name="category" value="health-science">Health & Sciences
-  </label>
-  <label>
-    <input type="checkbox" id="travel" name="category" value="travel">Travel
-  </label>
+      <fieldset id="category-query">
+        <p>Search by category:</p>
+        <ul class="checkbox-grid">
+          <li><label for="entertainment">
+              <input type="checkbox" id="entertainment" name="category" value="entertainment">Entertainment
+            </label></li>
+          <li><label for="sports">
+              <input type="checkbox" id="sports" name="category" value="sports">Sports
+            </label></li>
+          <li><label for="technology">
+              <input type="checkbox" id="technology" name="category" value="technology">Technology
+            </label></li>
 
-  <button role="button" type="submit">Search</button>
-</form>
+          <li><label for="finance">
+              <input type="checkbox" id="finance" name="category" value="finance">Finance
+            </label></li>
+          <li><label for="health-science">
+              <input type="checkbox" id="health-science" name="category" value="health-science">Health &amp; Sciences
+            </label></li>
+          <li><label for="travel">
+              <input type="checkbox" id="travel" name="category" value="travel">Travel
+            </label></li>
+        </ul>
+      </fieldset>
 
-<div class="results"></div>
+      <button role="button" type="submit">Search</button>
+      <button role="button" type="submit">Feeling Lucky!</button>
+
+    </form>
+
+    <section role="region" class="results"></section>
+  </main>
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

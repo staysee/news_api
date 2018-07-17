@@ -1,4 +1,4 @@
-const NEWS_URL = 'https://newsapi.org/v2/everything';
+const NEWS_URL = 'https://newsapi.org/v2/top-headlines';
 const API_KEY = config.MY_KEY
 
 function getDataFromApi(searchTerm, callback){
@@ -18,7 +18,7 @@ function renderResults(result){
       <img class="article-pic" src="${result.urlToImage}">
       <div class="title">TITLE:${result.title}</div>
       <div class="description">DESCRIPTION: ${result.description}</div>
-      <a class="article-link" href="${result.url}">CLICK FOR ARTICLE</a>
+      <a class="article-link" href="${result.url}" target="_blank">CLICK FOR ARTICLE</a>
     </div>
   `
 }
@@ -41,6 +41,7 @@ function watchSubmit(){
 
     //clear out input
     queryTarget.val("");
+    $('.results').html("");
     getDataFromApi(query, displayNewsSearchData);
   })
 }
