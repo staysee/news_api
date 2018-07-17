@@ -13,9 +13,15 @@ function getDataFromApi(searchTerm, callback){
 }
 
 function renderResults(result){
+  let articleImage = "../images/newspaper_icon.png";
+
+  if (result.urlToImage !== null || result.urlToImage !== "" || result.urlToimage !== undefined){
+    articleImage = result.urlToImage;
+  }
+
   return `
     <div class="search-item">
-      <img class="article-pic" src="${result.urlToImage}">
+      <img class="article-pic" src="${articleImage}">
       <div class="title">TITLE:${result.title}</div>
       <div class="description">DESCRIPTION: ${result.description}</div>
       <a class="article-link" href="${result.url}" target="_blank">CLICK FOR ARTICLE</a>
@@ -25,9 +31,24 @@ function renderResults(result){
 
 function displayNewsSearchData(data){
   console.log(data);
-  const results = data.articles.map((article, index) => renderResults(article));
+  let articlesToGenerate = 3;
+
+  const results = [];
+
+  for (let i=0; i<articlesToGenerate; i++){
+    let articleIndex = generateRandomArticleIndex(data);
+    results.push(renderResults(data.articles[articleIndex]));
+  }
+
+  //const results = data.articles.map((article, index) => renderResults(article));
 
   $('.results').html(results)
+
+}
+
+function generateRandomArticleIndex(data){
+  let numResults = data.articles.length;
+  let randomArticleIndex = Math.floor(Math.random() * numResults);
 
 }
 
