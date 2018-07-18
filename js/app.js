@@ -5,7 +5,7 @@ function getDataFromApi(searchTerm, callback){
   const query = {
     q: `${searchTerm}`,
     sortBy: 'relevancy',
-    pageSize: 10,
+    pageSize: 20,
     apiKey: API_KEY
   }
 
@@ -31,25 +31,43 @@ function renderResults(result){
 
 function displayNewsSearchData(data){
   console.log(data);
+  console.log(data.totalResults)
   let articlesToGenerate = 3;
+
+  if (data.articles.length < 3){
+    articlesToGenerate = data.articles.length;
+  }
+  console.log(`articles ${articlesToGenerate}`)
 
   const results = [];
 
   for (let i=0; i<articlesToGenerate; i++){
     let articleIndex = generateRandomArticleIndex(data);
+    console.log(articleIndex);
     results.push(renderResults(data.articles[articleIndex]));
   }
 
   //const results = data.articles.map((article, index) => renderResults(article));
-
   $('.results').html(results)
-
 }
 
 function generateRandomArticleIndex(data){
+  let randomIndexes = [];
   let numResults = data.articles.length;
-  let randomArticleIndex = Math.floor(Math.random() * numResults);
 
+  // let randomArticleIndex = Math.floor(Math.random() * numResults);
+
+  // return randomArticleIndex;
+
+  while (randomIndexes.length < 3){
+    let randomNumber = Math.floor(Math.random() * numResults);
+    if (randomIndexes.indexOf(randomNumber) > -1){
+      continue;
+    }
+    randomIndexes[randomIndexes.length] = randomNumber;
+  }
+
+  return randomIndexes
 }
 
 function watchSubmit(){
