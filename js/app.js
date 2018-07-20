@@ -5,7 +5,7 @@ function getDataFromApi(searchTerm, callback){
   const query = {
     q: `${searchTerm}`,
     sortBy: 'relevancy',
-    pageSize: 20,
+    pageSize: 100,
     apiKey: API_KEY
   }
 
@@ -13,10 +13,10 @@ function getDataFromApi(searchTerm, callback){
 }
 
 function renderResults(result){
-  let articleImage = "../images/newspaper_icon.png";
+  let articleImage = result.urlToImage
 
-  if (result.urlToImage !== null || result.urlToImage !== "" || result.urlToimage !== undefined){
-    articleImage = result.urlToImage;
+  if (result.urlToImage == null || result.urlToImage == "" || result.urlToImage == undefined){
+    articleImage = "../images/newspaper_icon.png";;
   }
 
   return `
@@ -31,7 +31,6 @@ function renderResults(result){
 
 function displayNewsSearchData(data){
   console.log(data);
-  console.log(data.totalResults)
   let articlesToGenerate = 3;
 
   if (data.articles.length < 3){
@@ -40,12 +39,18 @@ function displayNewsSearchData(data){
   console.log(`articles ${articlesToGenerate}`)
 
   const results = [];
+  let articleNumbers = generateRandomArticleIndex(data)
+  console.log(`articlenumbers: ${articleNumbers}`)
+  console.log(articleNumbers)
 
-  for (let i=0; i<articlesToGenerate; i++){
-    let articleIndex = generateRandomArticleIndex(data);
-    console.log(articleIndex);
-    results.push(renderResults(data.articles[articleIndex]));
+  for (let i=0; i < articleNumbers.length; i++){
+    results.push(renderResults(data.articles[articleNumbers[i]]));
   }
+  // for (let i=0; i<articlesToGenerate; i++){
+  //   let articleIndex = generateRandomArticleIndex(data);
+  //   console.log(articleIndex);
+  //   results.push(renderResults(data.articles[articleIndex]));
+  // }
 
   //const results = data.articles.map((article, index) => renderResults(article));
   $('.results').html(results)
@@ -54,13 +59,10 @@ function displayNewsSearchData(data){
 function generateRandomArticleIndex(data){
   let randomIndexes = [];
   let numResults = data.articles.length;
-
-  // let randomArticleIndex = Math.floor(Math.random() * numResults);
-
-  // return randomArticleIndex;
+    console.log(`total results: ${data.totalResults}`)
 
   while (randomIndexes.length < 3){
-    let randomNumber = Math.floor(Math.random() * numResults);
+    let randomNumber = Math.floor(Math.random() * data.totalResults);
     if (randomIndexes.indexOf(randomNumber) > -1){
       continue;
     }
