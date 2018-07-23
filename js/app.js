@@ -6,6 +6,7 @@ function getDataFromApi(searchTerm, callback){
     q: `${searchTerm}`,
     sortBy: 'relevancy',
     pageSize: 100,
+    country: 'us',
     apiKey: API_KEY
   }
 
@@ -16,15 +17,16 @@ function renderResults(result){
   let articleImage = result.urlToImage
 
   if (result.urlToImage == null || result.urlToImage == "" || result.urlToImage == undefined){
-    articleImage = "../images/newspaper_icon.png";;
+    articleImage = "./images/newspaper_icon.png";;
   }
 
   return `
     <div class="search-item">
+      <a class="article-link" href="${result.url}" target="_blank">
       <img class="article-pic" src="${articleImage}">
-      <div class="title">TITLE:${result.title}</div>
-      <div class="description">DESCRIPTION: ${result.description}</div>
-      <a class="article-link" href="${result.url}" target="_blank">CLICK FOR ARTICLE</a>
+      <div class="title">${result.title}</div>
+      <div class="description">${result.description}</div>
+      </a>
     </div>
   `
 }
@@ -63,7 +65,7 @@ function generateRandomArticleIndex(data){
 
   while (randomIndexes.length < 3){
     let randomNumber = Math.floor(Math.random() * data.totalResults);
-    if (randomIndexes.indexOf(randomNumber) > -1){
+    if (randomIndexes.indexOf(randomNumber) > -1 || randomNumber > 100){
       continue;
     }
     randomIndexes[randomIndexes.length] = randomNumber;
