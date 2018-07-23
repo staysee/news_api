@@ -15,9 +15,14 @@ function getDataFromApi(searchTerm, callback){
 
 function renderResults(result){
   let articleImage = result.urlToImage
+  let articleDescription = result.description;
 
   if (result.urlToImage == null || result.urlToImage == "" || result.urlToImage == undefined){
     articleImage = "./images/newspaper_icon.png";;
+  }
+
+  if (result.description == null || result.description == "" || result.description == undefined){
+    articleDescription = "No article description provided. Continue to article.";
   }
 
   return `
@@ -25,7 +30,7 @@ function renderResults(result){
       <a class="article-link" href="${result.url}" target="_blank">
       <img class="article-pic" src="${articleImage}">
       <div class="title">${result.title}</div>
-      <div class="description">${result.description}</div>
+      <div class="description">${articleDescription}</div>
       </a>
     </div>
   `
@@ -48,13 +53,7 @@ function displayNewsSearchData(data){
   for (let i=0; i < articleNumbers.length; i++){
     results.push(renderResults(data.articles[articleNumbers[i]]));
   }
-  // for (let i=0; i<articlesToGenerate; i++){
-  //   let articleIndex = generateRandomArticleIndex(data);
-  //   console.log(articleIndex);
-  //   results.push(renderResults(data.articles[articleIndex]));
-  // }
 
-  //const results = data.articles.map((article, index) => renderResults(article));
   $('.results').html(results)
 }
 
@@ -74,6 +73,29 @@ function generateRandomArticleIndex(data){
   return randomIndexes
 }
 
+// TAB HANDLERS
+function openSearch(evt, searchType){
+  let i, tabcontent, tablinks;
+
+  //get all elements with class="tabcontent" and hide them
+  tabcontent = $('.tabcontent');
+  for (i=0; i<tabcontent.length; i++){
+    tabcontent[i].style.display = "none";
+  }
+
+  //get all elements with class="tablinks" and remove the class "active"
+  tablinks = $('.tablinks');
+  for (i=0; i<tablinks.length; i++){
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  //show current tab, and add an "Active" class to the link that opened the tab
+  document.getElementById(searchType).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+
+// EVENT HANDLERS
 function watchSubmit(){
   $('.js-search-form').submit(function(event){
     event.preventDefault();

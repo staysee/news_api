@@ -14,13 +14,22 @@ header {
   font-size: 1.5em;
 }
 
+main {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.hide {
+  display: none;
+}
+
 /*style the tab*/
 .tab {
   float: left;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
   width: 30%;
-  height: 300px;
+  height: 220px;
 }
 
 /*style buttons used to open tab content*/
@@ -30,6 +39,7 @@ header {
   color: black;
   padding: 22px 16px;
   width: 100%;
+  height: 109px;
   border: none;
   outline: none;
   text-align: left;
@@ -54,15 +64,8 @@ header {
   border: 1ps solid #ccc;
   width: 70%;
   border-left: none;
-  height: 300px;
-}
-
-form {
-  width: 80%;
-  margin: 0 auto;
-  min-width: 345px;
-  background-color: #5f5b5b;
-  padding-bottom: 15px;
+  height: 220px;
+  background-color: gray;
 }
 
 fieldset {
@@ -76,7 +79,7 @@ fieldset p{
 .query {
   display: block;
   margin: 0 auto;
-  width: 75%;
+  width: 60%;
 }
 
 .checkbox-grid li {
@@ -89,12 +92,13 @@ fieldset p{
 button {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: 40%;
 }
 
 .results {
   display: flex;
   flex-wrap: wrap;
+  clear: both;
 }
 
 .search-item {
@@ -145,10 +149,6 @@ button {
 
 /*Media Queries*/
 @media only screen and (min-width: 465px) and (max-width: 990px){
-  .query {
-    width: 350px;
-  }
-
   .checkbox-grid li {
     width: 32.9%;
     padding-left: 0px;
@@ -156,12 +156,8 @@ button {
 }
 
 @media only screen and (min-width: 991px){
-  .query {
-    width: 500px;
-  }
-
   .checkbox-grid li {
-    width: 32.9%;
+    width: 25%%;
     padding-left: 0px;
   }
 
