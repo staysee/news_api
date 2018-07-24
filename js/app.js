@@ -1,20 +1,20 @@
-const NEWS_URL = 'https://newsapi.org/v2/top-headlines';
+const BASE_URL = 'https://newsapi.org/v2/';
 const API_KEY = config.MY_KEY
 
-function getDataFromApi(searchTerm, callback){
-  const query = {
-    q: `${searchTerm}`,
-    sortBy: 'relevancy',
-    pageSize: 100,
-    country: 'us',
-    apiKey: API_KEY
-  }
+function getDataFromApi(url, query, callback){
+  // const query = {
+  //   q: `${searchTerm}`,
+  //   sortBy: 'relevancy',
+  //   pageSize: 100,
+  //   country: 'us',
+  //   apiKey: API_KEY
+  // }
 
-  $.getJSON(NEWS_URL, query, callback);
+  $.getJSON(url, query, callback);
 }
 
 function renderResults(result){
-  let articleImage = result.urlToImage
+  let articleImage = result.urlToImage;
   let articleDescription = result.description;
 
   if (result.urlToImage == null || result.urlToImage == "" || result.urlToImage == undefined){
@@ -73,6 +73,38 @@ function generateRandomArticleIndex(data){
   return randomIndexes
 }
 
+
+
+// CATEGORIES
+function categorySources(selection){
+  let entertainmentSources = 'entertainment-weekly, mtv-news';
+  let sportsSources = 'espn, fox-sports, talksport, bbc-sport, the-sport-bible, bleacher-report, nfl-news';
+  let technologySources = 'techcrunch, recode, techradar, the-verge, engadget';
+  let financeSources = 'financial-times, financial-post';
+  let healthSciencesSources = 'new-scientist, medical-news-today';
+  let travelSources = 'national-geographic';
+
+  if(selection === "entertainment"){
+    return entertainmentSources
+  }
+  if(selection === "sports"){
+    return sportsSources
+  }
+  if(selection === "technology"){
+    return technologySources
+  }
+  if(selection === "finance"){
+    return financeSources
+  }
+  if(selection === "health-sciences"){
+    return healthSciencesSources
+  }
+  if(selection === "travel"){
+    return travelSources
+  }
+}
+
+
 // TAB HANDLERS
 function openSearch(evt, searchType){
   let i, tabcontent, tablinks;
@@ -96,28 +128,59 @@ function openSearch(evt, searchType){
 
 
 // EVENT HANDLERS
-function watchSubmit(){
-  $('.js-search-form').submit(function(event){
+function watchKeywordSubmit(){
+  $('.js-keyword-form').submit(function(event){
     event.preventDefault();
+    const ENDPOINT_URL = BASE_URL + 'top-headlines';
+
     const queryTarget = $(event.currentTarget).find('.js-query');
     const query = queryTarget.val();
 
     console.log(`submit query: ${query}`);
 
+    const queryK = {
+      q: `${query}`,
+      sortBy: 'relevancy',
+      pageSize: 100,
+      country: 'us',
+      apiKey: API_KEY
+    }
+
     //clear out input
     queryTarget.val("");
     $('.results').html("");
-    getDataFromApi(query, displayNewsSearchData);
+    getDataFromApi(ENDPOINT_URL, queryK, displayNewsSearchData);
   })
 }
 
-function watchCheckboxSelection(){
-  $('input[type=checkbox]').on('change', function() {
-    if ($(this).is(':checked')){
-      console.log($(this).val());
+function watchCategorySubmit(){
+  $('.js-category-form').submit(function(event){
+    event.preventDefault();
+    const ENDPOINT_URL = BASE_URL + 'everything';
+
+    let selectedCategory = $('input:checked').val();
+    console.log(`selected category: ${selectedCategory}`)
+
+    const queryE = {
+      sources: `${categorySources(selectedCategory)}`,
+      language: 'en',
+      sortBy: 'relevancy',
+      pageSize: 100,
+      apiKey: API_KEY
     }
-});
+
+    getDataFromApi(ENDPOINT_URL, queryE, displayNewsSearchData)
+  })
 }
 
-$(watchSubmit);
-$(watchCheckboxSelection);
+// function watchCheckboxSelection(){
+//   $('input[type=checkbox]').on('change', function() {
+//     if ($(this).is(':checked')){
+//       console.log($(this).val());
+//     }
+// });
+// }
+
+$(watchKeywordSubmit);
+$(watchCategorySubmit);
+// $(watchCheckboxSelection);

@@ -18,32 +18,37 @@
   <main role="main">
 
     <div class="tab">
+      <button class="tablinks" onclick="openSearch(event, 'How-To')">How to Use</button>
       <button class="tablinks" onclick="openSearch(event, 'Keyword')">Keyword</button>
       <button class="tablinks" onclick="openSearch(event, 'Category')">Category</button>
     </div>
 
-    <div id="Keyword" class="tabcontent">
+    <div id="How-To" class="tabcontent keyword-howto">
+      <h3>How To Use</h3>
+      <p>Search by Keyword: Search through today's top headlines by keyword.</p>
+    </div>
+
+    <div id="Keyword" class="tabcontent keyword-tabcontent hide">
       <h3>Search by keyword:</h3>
       <p>Enter a keyword to search today's top headlines.</p>
 
-      <form class="js-search-form">
+      <form class="js-keyword-form">
         <fieldset id="keyword-query">
           <label>
             <input class="query js-query" type="search">
           </label>
-          <button id="search-button" role="button" type="submit">Search</button>
-          <button id="lucky-button" role="button" type="submit">Feeling Lucky!</button>
+          <button id="keyword-search-button" role="button" type="submit">Search</button>
+          <button id="keyword-lucky-button" role="button" type="submit">Feeling Lucky!</button>
         </fieldset>
       </form>
-
     </div>
 
 
-    <div id="Category" class="tabcontent hide">
+    <div id="Category" class="tabcontent category-tabcontent hide">
       <h3>Search by category</h3>
       <p>Select up to 3 categories to search.</p>
 
-      <form class="js-search-form">
+      <form class="js-category-form">
         <fieldset id="category-query">
           <ul class="checkbox-grid">
             <li><label for="entertainment">
@@ -55,7 +60,7 @@
             <li><label for="finance">
                 <input type="checkbox" id="finance" name="category" value="finance">Finance
               </label></li>
-              
+
             <li><label for="health-science">
                 <input type="checkbox" id="health-science" name="category" value="health-science">Health &amp; Sciences
               </label></li>
@@ -68,49 +73,10 @@
           </ul>
         </fieldset>
 
-        <button id="search-button" role="button" type="submit">Search</button>
-        <button id="lucky-button" role="button" type="submit">Feeling Lucky!</button>
+        <button id="category-search-button" role="button" type="submit">Search</button>
+        <button id="category-lucky-button" role="button" type="submit">Feeling Lucky!</button>
       </form>
     </div>
-
-
-<!--     <form class="js-search-form">
-      <fieldset id="keyword-query">
-        <p>Search by keyword:</p>
-        <label>
-          <input class="query js-query" type="search">
-        </label>
-      </fieldset>
-
-      <fieldset id="category-query">
-        <p>Search by category:</p>
-        <ul class="checkbox-grid">
-          <li><label for="entertainment">
-              <input type="checkbox" id="entertainment" name="category" value="entertainment">Entertainment
-            </label></li>
-          <li><label for="sports">
-              <input type="checkbox" id="sports" name="category" value="sports">Sports
-            </label></li>
-          <li><label for="technology">
-              <input type="checkbox" id="technology" name="category" value="technology">Technology
-            </label></li>
-
-          <li><label for="finance">
-              <input type="checkbox" id="finance" name="category" value="finance">Finance
-            </label></li>
-          <li><label for="health-science">
-              <input type="checkbox" id="health-science" name="category" value="health-science">Health &amp; Sciences
-            </label></li>
-          <li><label for="travel">
-              <input type="checkbox" id="travel" name="category" value="travel">Travel
-            </label></li>
-        </ul>
-      </fieldset>
-
-      <button id="search-button" role="button" type="submit">Search</button>
-      <button id="lucky-button" role="button" type="submit">Feeling Lucky!</button>
-
-    </form> -->
 
     <section role="region" class="results"></section>
   </main>
