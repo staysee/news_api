@@ -6,62 +6,8 @@ function getDataFromApi(url, query, callback){
   $.getJSON(url, query, callback);
 }
 
-function categorySources(selection){
-  let entertainmentSources = 'entertainment-weekly, mtv-news';
-  let sportsSources = 'espn, fox-sports, talksport, bbc-sport, the-sport-bible, bleacher-report, nfl-news';
-  let technologySources = 'techcrunch, recode, techradar, the-verge, engadget';
-  let financeSources = 'financial-times, financial-post';
-  let healthSciencesSources = 'new-scientist, medical-news-today';
-  let travelSources = 'national-geographic';
 
-  if(selection === "entertainment"){
-    return entertainmentSources
-  }
-  if(selection === "sports"){
-    return sportsSources
-  }
-  if(selection === "technology"){
-    return technologySources
-  }
-  if(selection === "finance"){
-    return financeSources
-  }
-  if(selection === "health-sciences"){
-    return healthSciencesSources
-  }
-  if(selection === "travel"){
-    return travelSources
-  }
-}
-
-function searchTopHeadlines(query){
-  const ENDPOINT_URL = BASE_URL + 'top-headlines';
-  const queryK = {
-    q: `${query}`,
-    sortBy: 'relevancy',
-    pageSize: 100,
-    country: 'us',
-    apiKey: API_KEY
-  }
-  getDataFromApi(ENDPOINT_URL, queryK, displayNewsSearchData);
-}
-
-function searchEverything(){
-  const ENDPOINT_URL = BASE_URL + 'everything';
-  let selectedCategory = $('input:checked').val();
-  console.log(`selected category: ${selectedCategory}`)
-
-  const queryE = {
-    sources: `${getSources(selectCategories())}`,
-    language: 'en',
-    sortBy: 'relevancy',
-    pageSize: 100,
-    apiKey: API_KEY
-  }
-
-  getDataFromApi(ENDPOINT_URL, queryE, displayNewsSearchData)
-}
-
+// DISPLAY RESULTS
 function generateRandomArticleIndex(data){
   let randomIndexes = [];
   let numResults = data.articles.length;
@@ -77,8 +23,6 @@ function generateRandomArticleIndex(data){
   return randomIndexes
 }
 
-
-// DISPLAY RESULTS
 function renderResults(result){
   let articleImage = result.urlToImage;
   let articleDescription = result.description;
@@ -123,17 +67,7 @@ function displayNewsSearchData(data){
 
 
 
-
-
-
-
-// EVENT HANDLERS
-// function handleTabs(){
-//   let clickedBtnID = $(this).attr('id');
-//   $('.tablinks').on('click', function(){
-//     openSearch(event, clickedBtnID)
-//   })
-// }
+// APP FUNCTION
 function openSearch(evt, searchType){
   let i, tabcontent, tablinks;
 
@@ -142,7 +76,7 @@ function openSearch(evt, searchType){
   for (i=0; i<tabcontent.length; i++){
     tabcontent[i].style.display = "none";
   }
-  // $('.tabcontent').addClass("hide");
+  // $('.tabcontent').css("display", "none");
 
   //get all elements with class="tablinks" and remove the class "active"
   tablinks = $('.tablinks');
@@ -154,55 +88,3 @@ function openSearch(evt, searchType){
   document.getElementById(searchType).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
-function watchKeywordSubmit(){
-  $('.js-keyword-form').submit(function(event){
-    event.preventDefault();
-    const queryTarget = $(event.currentTarget).find('.js-query');
-    const query = queryTarget.val();
-    console.log(`submit query: ${query}`);
-
-    searchTopHeadlines(query)
-    //clear out input
-    queryTarget.val("");
-    $('.results').html("");
-  })
-}
-
-function watchCategorySubmit(){
-  $('.js-category-form').submit(function(event){
-    event.preventDefault();
-    searchEverything();
-
-  })
-}
-
-function selectCategories(){
-  let pickedCategories = [];
-  $.each($('input[name="category"]:checked'), function(){
-    pickedCategories.push($(this).val());
-  })
-  console.log(`selected categories: ${pickedCategories}`);
-
-  return pickedCategories
-}
-
-function getSources(categories, selection){
-  let sources = categories.map(category => categorySources(category));
-
-  console.log(sources.join(", "));
-  return sources.join(", ");
-}
-
-// function watchCheckboxSelection(){
-//   $('input[type=checkbox]').on('change', function() {
-//     if ($(this).is(':checked')){
-//       console.log($(this).val());
-//     }
-// });
-// }
-
-$(watchKeywordSubmit);
-$(watchCategorySubmit);
-// $(watchCheckboxSelection);
-// $(handleTabs);

@@ -35,10 +35,10 @@
       <form class="js-keyword-form">
         <fieldset id="keyword-query">
           <label>
-            <input class="query js-query" type="search">
+            <input class="query js-query" type="search" required>
           </label>
           <button id="keyword-search-button" class="search-button" role="button" type="submit">Search</button>
-          <button id="keyword-lucky-button" class="search-button" role="button" type="submit">Feeling Lucky!</button>
+          <!-- <button id="keyword-lucky-button" class="search-button" role="button" type="submit">Feeling Lucky!</button> -->
         </fieldset>
       </form>
     </div>
@@ -60,8 +60,8 @@
                 <input type="checkbox" id="finance" name="category" value="finance">Finance
               </label></li>
 
-            <li><label for="health-science">
-                <input type="checkbox" id="health-science" name="category" value="health-science">Health &amp; Sciences
+            <li><label for="health-sciences">
+                <input type="checkbox" id="health-sciences" name="category" value="health-sciences">Health &amp; Sciences
               </label></li>
             <li><label for="travel">
                 <input type="checkbox" id="travel" name="category" value="travel">Travel
@@ -73,7 +73,7 @@
         </fieldset>
 
         <button id="category-search-button" class="search-button" role="button" type="submit">Search</button>
-        <button id="category-lucky-button" class="search-button" role="button" type="submit">Feeling Lucky!</button>
+        <!-- <button id="category-lucky-button" class="search-button" role="button" type="submit">Feeling Lucky!</button> -->
       </form>
     </div>
 
@@ -85,5 +85,7 @@
 <!-- javaScript -->
 <script type='text/javascript' src='config.js'></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/keyword.js"></script>
+<script type="text/javascript" src="js/category.js"></script>
 </body>
 </html>
