@@ -190,6 +190,7 @@ function selectCategories(){
 function getSources(categories, selection){
   let sources = categories.map(category => categorySources(category));
 
+  console.log(sources.join(", "));
   return sources.join(", ");
 }
 
