@@ -110,6 +110,10 @@ button {
   width: 40%;
 }
 
+.search-button {
+  background-color: pink;
+}
+
 .results {
   display: flex;
   flex-wrap: wrap;

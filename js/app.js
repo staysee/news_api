@@ -172,7 +172,13 @@ function watchKeywordSubmit(){
 function watchCategorySubmit(){
   $('.js-category-form').submit(function(event){
     event.preventDefault();
-    searchEverything();
+    let pickedCategories = [];
+
+    $.each($('input[name="category"]:checked'), function(){
+      pickedCategories.push($(this).val());
+    })
+    alert(`My category picks are: ${pickedCategories.join(", ")}`);
+    // searchEverything();
 
   })
 }
