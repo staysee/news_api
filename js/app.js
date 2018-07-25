@@ -52,7 +52,7 @@ function searchEverything(){
   console.log(`selected category: ${selectedCategory}`)
 
   const queryE = {
-    sources: `${categorySources(selectedCategory)}`,
+    sources: `${getSources(selectCategories())}`,
     language: 'en',
     sortBy: 'relevancy',
     pageSize: 100,
@@ -172,15 +172,25 @@ function watchKeywordSubmit(){
 function watchCategorySubmit(){
   $('.js-category-form').submit(function(event){
     event.preventDefault();
-    let pickedCategories = [];
-
-    $.each($('input[name="category"]:checked'), function(){
-      pickedCategories.push($(this).val());
-    })
-    alert(`My category picks are: ${pickedCategories.join(", ")}`);
-    // searchEverything();
+    searchEverything();
 
   })
+}
+
+function selectCategories(){
+  let pickedCategories = [];
+  $.each($('input[name="category"]:checked'), function(){
+    pickedCategories.push($(this).val());
+  })
+  console.log(`selected categories: ${pickedCategories}`);
+
+  return pickedCategories
+}
+
+function getSources(categories, selection){
+  let sources = categories.map(category => categorySources(category));
+
+  return sources.join(", ");
 }
 
 // function watchCheckboxSelection(){
