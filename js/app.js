@@ -1,5 +1,5 @@
 const BASE_URL = 'https://newsapi.org/v2/';
-const API_KEY = config.MY_KEY
+const API_KEY = 'a9bef3e51f1f4273b2ba47ed41b5449d'
 
 // API SEARCH
 function getDataFromApi(url, query, callback){
