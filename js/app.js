@@ -8,12 +8,12 @@ function getDataFromApi(url, query, callback){
 
 
 // DISPLAY RESULTS
-function generateRandomArticleIndex(data){
+function generateRandomArticleIndex(data, articlesToGenerate){
   let randomIndexes = [];
   let numResults = data.articles.length;
   console.log(`No. total results: ${data.totalResults}`)
 
-  while (randomIndexes.length < 3){
+  while (randomIndexes.length < articlesToGenerate){
     let randomNumber = Math.floor(Math.random() * data.totalResults);
     if (randomIndexes.indexOf(randomNumber) > -1 || randomNumber > 100){
       continue
@@ -49,10 +49,10 @@ function renderResults(result){
 function displayNewsSearchData(data){
   console.log(data);
   const results = [];
-  let articlesToGenerate = 3;
-  let articleNumbers = generateRandomArticleIndex(data)
+  let articlesToGenerate = 6;
+  let articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
 
-  if (data.articles.length < 3){
+  if (data.articles.length < articlesToGenerate){
     articlesToGenerate = data.articles.length;
   }
 
