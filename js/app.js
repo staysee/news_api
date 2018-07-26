@@ -50,10 +50,13 @@ function displayNewsSearchData(data){
   console.log(data);
   const results = [];
   let articlesToGenerate = 6;
-  let articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
+  let articleNumbers;
 
   if (data.articles.length < articlesToGenerate){
     articlesToGenerate = data.articles.length;
+    articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
+  } else {
+    articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
   }
 
   console.log(`No. articles to generate: ${articlesToGenerate}; arrray of articleNumbers: ${articleNumbers}`)
