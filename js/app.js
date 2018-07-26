@@ -27,8 +27,8 @@ function renderResults(result){
   let articleImage = result.urlToImage;
   let articleDescription = result.description;
 
-  if (result.urlToImage == null || result.urlToImage == "" || result.urlToImage == undefined){
-    articleImage = "./images/newspaper_icon.png";;
+  if (result.urlToImage == null || result.urlToImage == "" || result.urlToImage == undefined || result.urlToImage.match(/abcnews\.com\/images/)){
+    articleImage = "./images/news.jpg";
   }
 
   if (result.description == null || result.description == "" || result.description == undefined){
