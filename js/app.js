@@ -15,7 +15,7 @@ function generateRandomArticleIndex(data, articlesToGenerate){
 
   while (randomIndexes.length < articlesToGenerate){
     let randomNumber = Math.floor(Math.random() * data.totalResults);
-    if (randomIndexes.indexOf(randomNumber) > -1 || randomNumber > 100){
+    if (randomIndexes.indexOf(randomNumber) > -1 || randomNumber > 99){
       continue
     }
     randomIndexes[randomIndexes.length] = randomNumber;
