@@ -12,6 +12,7 @@ body {
 header {
   text-align: center;
   font-size: 1.5em;
+  color: #59a13b;
 }
 
 main {
@@ -57,7 +58,7 @@ main {
 
 /*change bg color of buttons on hover*/
 .tab button:hover {
-  background-color: #96858F;
+  background-color: #2b58b6;
 }
 
 /*create active/current tab button class*/
@@ -133,13 +134,14 @@ button {
 
 .search-item {
   display: inline-block;
-  min-width: 250px;
+  /*min-width: 250px;*/
   margin: 10px auto;
   background-color: white;
   color: black;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
   font-size: 0;
+  width: 100%;
 }
 
 .search-item:hover{
@@ -189,18 +191,15 @@ button {
 
 
 /*Media Queries*/
-@media only screen and (min-width: 465px) and (max-width: 990px){
-/*  .checkbox-grid li {
-    width: 32.9%;
-    padding-left: 0px;
-  }*/
+@media only screen and (min-width: 720px) and (max-width: 990px){
+  .search-item {
+    width: 45%;
+  }
 }
 
 @media only screen and (min-width: 991px){
-  .checkbox-grid li {
-    width: 25%%;
-    padding-left: 0px;
+  .search-item {
+    width: 30.3%;
   }
-
 
 }

@@ -66,6 +66,9 @@ function watchCategorySubmit(){
   $('.js-category-form').submit(function(event){
     event.preventDefault();
     searchEverything();
+    $('input[type=checkbox]').each(function(){
+        this.checked = false;
+      });
   })
 }
 
