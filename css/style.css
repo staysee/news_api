@@ -130,12 +130,12 @@ button {
   display: flex;
   flex-wrap: wrap;
   clear: both;
+  justify-content: space-between;
 }
 
 .search-item {
   display: inline-block;
-  /*min-width: 250px;*/
-  margin: 10px auto;
+  margin: 15px 0;
   background-color: white;
   color: black;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
