@@ -11,16 +11,31 @@ body {
 
 header {
   text-align: center;
-  font-size: 1.5em;
-  color: #59a13b;
 }
 
+header h1 {
+    font-family: 'Vollkorn SC', serif;
+    color: #12347b;
+    font-size: 3em;
+    margin: 0;
+}
+
+header p {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+
+
 main {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   min-width: 300px;
 }
 
+p {
+  text-align: center;
+}
 .hide {
   display: none;
 }
@@ -46,7 +61,7 @@ main {
   color: black;
   padding: 22px 16px;
   width: 100%;
-  height: 73px;
+  height: 110px;
   border: none;
   outline: none;
   text-align: left;
@@ -93,10 +108,27 @@ button {
 
 
 /*KEYWORD SEARCH*/
+#Keyword p {
+  margin-top: 35px;
+}
 .keyword-query {
   display: block;
   margin: 15px auto;
-  width: 60%;
+  width: 70%;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+input:focus {
+    box-shadow: 0 0 3pt 2pt #EDEF51;
+}
+#keyword-search-button {
+  width: 70%;
+  font-weight: bolder;
 }
 
 /*CATEGORY SEARCH*/
@@ -137,7 +169,7 @@ button {
   display: inline-block;
   margin: 15px 0;
   background-color: white;
-  color: black;
+  /*color: black;*/
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
   font-size: 0;
@@ -172,7 +204,7 @@ button {
   text-align: center;
   font-weight: bolder;
   text-transform: uppercase;
-  color: black;
+  /*color: black;*/
   font-size: 14px;
   padding: 5px 10px;
   background-color: #59A13B;
@@ -192,14 +224,22 @@ button {
 
 /*Media Queries*/
 @media only screen and (min-width: 720px) and (max-width: 990px){
+  main {
+    width: 70%;
+  }
+
   .search-item {
-    width: 45%;
+    width: 50%;
   }
 }
 
 @media only screen and (min-width: 991px){
+  main {
+    width: 70%;
+  }
+
   .search-item {
-    width: 30.3%;
+    width: 33.3%;
   }
 
 }
