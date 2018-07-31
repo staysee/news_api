@@ -169,16 +169,14 @@ input:focus {
   display: inline-block;
   margin: 15px 0;
   background-color: white;
-  /*color: black;*/
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+  transition: 0.3s;
   font-size: 0;
   width: 100%;
 }
 
 .search-item:hover{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  /*transform: rotate(2deg);*/
 }
 
 .article-link:link {
@@ -204,7 +202,6 @@ input:focus {
   text-align: center;
   font-weight: bolder;
   text-transform: uppercase;
-  /*color: black;*/
   font-size: 14px;
   padding: 5px 10px;
   background-color: #59A13B;
@@ -229,7 +226,7 @@ input:focus {
   }
 
   .search-item {
-    width: 50%;
+    width: 48%;
   }
 }
 
@@ -239,7 +236,7 @@ input:focus {
   }
 
   .search-item {
-    width: 33.3%;
+    width: 30.3%;
   }
 
 }
