@@ -59,7 +59,7 @@ function displayNewsSearchData(data){
     articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
   }
 
-  console.log(`No. articles to generate: ${articlesToGenerate}; arrray of articleNumbers: ${articleNumbers}`)
+  console.log(`No. articles to generate: ${articlesToGenerate}; array of articleNumbers: ${articleNumbers}`)
 
   for (let i=0; i < articleNumbers.length; i++){
     results.push(renderResults(data.articles[articleNumbers[i]]));

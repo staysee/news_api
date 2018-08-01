@@ -93,6 +93,10 @@ p {
   color: white;
 }
 
+.tab button, .tabcontent {
+  box-shadow: 0 4px 8px 0 #12347b;
+}
+
 button {
   display: block;
   margin: 0 auto;
