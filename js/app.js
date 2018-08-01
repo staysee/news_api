@@ -38,7 +38,7 @@ function renderResults(result){
   return `
     <div class="search-item">
       <a class="article-link" href="${result.url}" target="_blank" role="button" aria-label="open article">
-      <img class="article-pic" src="${articleImage}" alt="cover image of article" role="presentation">
+      <img class="article-pic" src="${articleImage}" alt="image for ${result.title}" role="presentation">
       <div class="title">${result.title}</div>
       <div class="description">${articleDescription}</div>
       </a>
