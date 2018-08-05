@@ -19,11 +19,11 @@
   <main role="main">
 
     <div class="tab">
-      <button class="tablinks" onclick="openSearch(event, 'Keyword')">Keyword</button>
+      <button class="tablinks active" onclick="openSearch(event, 'Keyword')">Keyword</button>
       <button class="tablinks" onclick="openSearch(event, 'Category')">Category</button>
     </div>
 
-    <div id="Keyword" class="tabcontent keyword-tabcontent">
+    <div id="Keyword" class="tabcontent keyword-tabcontent active">
       <h3>Search by keyword:</h3>
       <p>Enter a keyword to search today's top headlines.</p>
 
@@ -32,7 +32,6 @@
           <input class="keyword-query js-keyword-query" type="search" placeholder="Search by keyword(s)..." required>
         </label>
         <button id="keyword-search-button" class="search-button" role="button" type="submit">Search</button>
-        <!-- <button id="keyword-lucky-button" class="search-button" role="button" type="submit">Feeling Lucky!</button> -->
       </form>
     </div>
 
@@ -40,34 +39,38 @@
       <h3>Search by category</h3>
       <p>Select up to 3 categories to search.</p>
 
-      <form class="js-category-form">
-        <ul class="checkbox-grid">
-          <li><label for="entertainment">
-              <input type="checkbox" id="entertainment" name="category" value="entertainment">Entertainment
+      <form class="js-category-form category-form">
+        <div class="categories-checkboxes">
+          <ul class="checkbox-grid left-grid">
+            <li><label for="entertainment">
+                <input type="checkbox" id="entertainment" name="category" value="entertainment">Entertainment
+              </label></li>
+            <li><label for="health-sciences">
+                <input type="checkbox" id="health-sciences" name="category" value="health-sciences">Health &amp; Sciences
+              </label></li>
+            <li><label for="technology">
+              <input type="checkbox" id="technology" name="category" value="technology">Technology
             </label></li>
-          <li><label for="sports">
-              <input type="checkbox" id="sports" name="category" value="sports">Sports
-            </label></li>
-          <li><label for="finance">
-              <input type="checkbox" id="finance" name="category" value="finance">Finance
-            </label></li>
+          </ul>
 
-          <li><label for="health-sciences">
-              <input type="checkbox" id="health-sciences" name="category" value="health-sciences">Health &amp; Sciences
-            </label></li>
-          <li><label for="travel">
-              <input type="checkbox" id="travel" name="category" value="travel">Travel
-            </label></li>
-          <li><label for="technology">
-            <input type="checkbox" id="technology" name="category" value="technology">Technology
-          </label></li>
-        </ul>
+          <ul class="checkbox-grid right-grid">
+            <li><label for="sports">
+                <input type="checkbox" id="sports" name="category" value="sports">Sports
+              </label></li>
+            <li><label for="finance">
+                <input type="checkbox" id="finance" name="category" value="finance">Finance
+              </label></li>
+            <li><label for="travel">
+                <input type="checkbox" id="travel" name="category" value="travel">Travel
+              </label></li>
+          </ul>
+        </div>
 
         <button id="category-search-button" class="search-button" role="button" type="submit">Search</button>
-        <!-- <button id="category-lucky-button" class="search-button" role="button" type="submit">Feeling Lucky!</button> -->
       </form>
     </div>
 
+    <div class="message"></div>
     <section role="region" class="results"></section>
   </main>
 

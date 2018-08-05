@@ -1,22 +1,17 @@
 const BASE_URL = 'https://newsapi.org/v2/';
 const API_KEY = 'a9bef3e51f1f4273b2ba47ed41b5449d'
 
-// ----------
-//  API CALL
-// ----------
-
+// API SEARCH
 function getDataFromApi(url, query, callback){
   $.getJSON(url, query, callback);
 }
 
-// ----------------
+
 // DISPLAY RESULTS
-// ----------------
 function generateRandomArticleIndex(data, articlesToGenerate){
   let randomIndexes = [];
   let numResults = data.articles.length;
   console.log(`No. total results: ${data.totalResults}`)
-  $('.message').html(`There are ${data.totalResults} result(s) for your search in today's headlines.`);
 
   while (randomIndexes.length < articlesToGenerate){
     let randomNumber = Math.floor(Math.random() * data.totalResults);
@@ -42,13 +37,13 @@ function renderResults(result){
 
   return `
     <div class="search-item">
-    <div class="inside-content">
-      <a class="article-link" href="${result.url}" target="_blank" role="button" aria-label="open article">
-      <img class="article-pic" src="${articleImage}" alt="image for ${result.title}" role="presentation">
-      <div class="title">${result.title}</div>
-      <div class="description">${articleDescription}</div>
-      </a>
-    </div>
+      <div class="inside-content">
+        <a class="article-link" href="${result.url}" target="_blank">
+        <img class="article-pic" src="${articleImage}">
+        <div class="title">${result.title}</div>
+        <div class="description">${articleDescription}</div>
+        </a>
+      </div>
     </div>
   `
 }
@@ -66,7 +61,7 @@ function displayNewsSearchData(data){
     articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
   }
 
-  console.log(`No. articles to generate: ${articlesToGenerate}; array of articleNumbers: ${articleNumbers}`)
+  console.log(`No. articles to generate: ${articlesToGenerate}; arrray of articleNumbers: ${articleNumbers}`)
 
   for (let i=0; i < articleNumbers.length; i++){
     results.push(renderResults(data.articles[articleNumbers[i]]));
@@ -75,15 +70,26 @@ function displayNewsSearchData(data){
   $('.results').html(results)
 }
 
-// -------------
-//  APP FUNCTION
-// -------------
+
+
+// APP FUNCTION
 function openSearch(evt, searchType){
   let i, tabcontent, tablinks;
 
-  $('.tabcontent').css("display", "none");
-  $('.tablinks').removeClass("active");
-  $(`#${searchType}`).css("display", "block");
+  // get all elements with class="tabcontent" and hide them
+  tabcontent = $('.tabcontent');
+  for (i=0; i<tabcontent.length; i++){
+    tabcontent[i].style.display = "none";
+  }
+  // $('.tabcontent').css("display", "none");
 
+  //get all elements with class="tablinks" and remove the class "active"
+  tablinks = $('.tablinks');
+  for (i=0; i<tablinks.length; i++){
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  //show current tab, and add an "Active" class to the link that opened the tab
+  document.getElementById(searchType).style.display = "block";
   evt.currentTarget.className += " active";
 }
