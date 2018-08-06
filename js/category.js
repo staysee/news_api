@@ -64,6 +64,7 @@ function getSources(categories, selection){
 //EVENT HANDLER
 function watchCategorySubmit(){
   $('.js-category-form').submit(function(event){
+    $('.message').html("");
     event.preventDefault();
     searchEverything();
     $('input[type=checkbox]').each(function(){
