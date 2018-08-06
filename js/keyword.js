@@ -23,6 +23,7 @@ function watchKeywordSubmit(){
     searchTopHeadlines(query)
     //clear out input
     queryTarget.val("");
+    $('.message').html("");
     $('.results').html("");
   })
 }

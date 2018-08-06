@@ -16,7 +16,10 @@ function generateRandomArticleIndex(data, articlesToGenerate){
   let randomIndexes = [];
   let numResults = data.articles.length;
   console.log(`No. total results: ${data.totalResults}`)
-  $('.message').html(`There are ${data.totalResults} result(s) for your search.`);
+
+  if (data.totalResults === 0){
+    $('.message').html(`There are ${data.totalResults} result(s) for your search.`);
+  }
 
   while (randomIndexes.length < articlesToGenerate){
     let randomNumber = Math.floor(Math.random() * data.totalResults);

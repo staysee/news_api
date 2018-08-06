@@ -184,6 +184,11 @@ input:focus {
 }
 
 /*DISPLAY RESULTS*/
+.message {
+  text-align: center;
+  font-weight: bolder;
+}
+
 .results {
   display: flex;
   flex-wrap: wrap;
