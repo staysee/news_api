@@ -187,6 +187,7 @@ input:focus {
 .message {
   text-align: center;
   font-weight: bolder;
+  clear: both;
 }
 
 .results {
