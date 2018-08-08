@@ -1,0 +1,102 @@
+@media only screen and (min-width: 300px) and (max-width: 719px){
+  body, header p, .description {
+    font-size: 12px;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  header p {
+    margin-top: 0px;
+  }
+
+  .tab, .tabcontent{
+    height: 191px;
+  }
+
+  .tab button {
+    height: 95px;
+  }
+
+  #Keyword h3 {
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+
+  #Keyword p {
+    margin-top: 0px;
+    padding-left: 5px;
+  }
+
+  .keyword-query {
+    width: 85%;
+    font-size: 11px;
+  }
+
+  #Category h3 {
+    margin: 10px 0 5px 5px;
+  }
+
+  #Category p {
+    padding-left: 5px;
+  }
+
+  .categories-checkboxes {
+    width: 100%;
+  }
+
+  .checkbox-grid li{
+    font-size: 11px;
+  }
+
+  .search-button {
+    font-size: 11px;
+    width: 85%;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .message {
+    padding-top: 15px;
+  }
+}
+
+@media only screen and (min-width: 720px) and (max-width: 990px){
+  main {
+    width: 70%;
+  }
+
+  .search-item {
+    width: 50%;
+  }
+
+  .inside-content {
+    margin: 10px 0 10px 10px;
+  }
+
+  .search-item:nth-child(1) .inside-content, .search-item:nth-child(3) .inside-content, .search-item:nth-child(5) .inside-content{
+    margin-left: 0;
+  }
+}
+
+@media only screen and (min-width: 991px){
+  main {
+    width: 70%;
+  }
+
+  .search-item {
+    width: 33.3%
+  }
+
+  .inside-content {
+    margin: 10px 0 10px 10px;
+  }
+
+  .search-item:nth-child(1) .inside-content, .search-item:nth-child(4) .inside-content{
+    margin-left: 0;
+  }
+
+}
