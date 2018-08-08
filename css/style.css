@@ -21,10 +21,6 @@ header h1 {
   margin: 0;
 }
 
-h2 {
-  font-size: 1.2em;
-}
-
 header p {
   font-size: 14px;
   margin-top: 15px;
@@ -110,6 +106,9 @@ button {
 }
 
 /*KEYWORD SEARCH*/
+#Keyword h2, #Category h2 {
+  font-size: 1.125em;
+}
 #Keyword h2 {
   padding-left: 35px;
   padding-top: 16px;
@@ -172,7 +171,7 @@ input:focus {
 .checkbox-grid input {
   vertical-align: top;
 }
-  
+
 .left-grid {
   grid-area: left;
 }
