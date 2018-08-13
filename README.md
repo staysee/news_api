@@ -17,8 +17,9 @@ If you are in a hurry to catch up on some news but don't want to waste time look
 ## How to Use
 
 Select your search by keyword or category.
-To search by keyword, enter your keyword(s) to search today's top headlines.
-To search by category, select your categories of interest to search through sources related to the selected categories.
+
+* To search by keyword, enter your keyword(s) to search today's top headlines.
+* To search by category, select your categories of interest to search through sources related to the selected categories.
 
 Up to 6 articles chosen at random from the total results will be displayed.
 Searching today's top headlines (keyword search) may produce zero results if the topic is not found in today's headlines.
