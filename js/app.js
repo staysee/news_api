@@ -15,7 +15,6 @@ function getDataFromApi(url, query, callback){
 function generateRandomArticleIndex(data, articlesToGenerate){
   let randomIndexes = [];
   let numResults = data.articles.length;
-  console.log(`No. total results: ${data.totalResults}`)
 
   if (data.totalResults === 0){
     $('.message').html(`There are ${data.totalResults} result(s) for your search.`);
@@ -36,7 +35,7 @@ function renderResults(result){
   let articleDescription = result.description;
 
   if (result.urlToImage == null || result.urlToImage == "" || result.urlToImage == undefined || result.urlToImage.match(/abcnews\.com\/images/)){
-    articleImage = "./images/news.jpg";
+    articleImage = "./images/folded_newspaper.jpg";
   }
 
   if (result.description == null || result.description == "" || result.description == undefined){
@@ -57,7 +56,6 @@ function renderResults(result){
 }
 
 function displayNewsSearchData(data){
-  console.log(data);
   const results = [];
   let articlesToGenerate = 6;
   let articleNumbers;
@@ -68,8 +66,6 @@ function displayNewsSearchData(data){
   } else {
     articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
   }
-
-  console.log(`No. articles to generate: ${articlesToGenerate}; array of articleNumbers: ${articleNumbers}`)
 
   for (let i=0; i < articleNumbers.length; i++){
     results.push(renderResults(data.articles[articleNumbers[i]]));

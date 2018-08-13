@@ -18,10 +18,9 @@ function watchKeywordSubmit(){
     event.preventDefault();
     const queryTarget = $(event.currentTarget).find('.js-keyword-query');
     const query = queryTarget.val();
-    console.log(`submit query: ${query}`);
 
     searchTopHeadlines(query)
-    //clear out input
+
     queryTarget.val("");
     $('.message').html("");
     $('.results').html("");

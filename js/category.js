@@ -3,7 +3,6 @@
 function searchEverything(){
   const ENDPOINT_URL = BASE_URL + 'everything';
   let selectedCategory = $('input:checked').val();
-  console.log(`selected category: ${selectedCategory}`)
 
   const queryE = {
     sources: `${getSources(selectCategories())}`,
@@ -20,7 +19,6 @@ function selectCategories(){
   $.each($('input[name="category"]:checked'), function(){
     pickedCategories.push($(this).val());
   })
-  console.log(`selected categories: ${pickedCategories}`);
 
   return pickedCategories
 }
@@ -56,7 +54,6 @@ function categorySources(selection){
 function getSources(categories, selection){
   let sources = categories.map(category => categorySources(category));
 
-  console.log(sources.join(", "));
   return sources.join(", ");
 }
 
@@ -74,13 +71,3 @@ function watchCategorySubmit(){
 }
 
 $(watchCategorySubmit);
-
-// function watchCheckboxSelection(){
-//   $('input[type=checkbox]').on('change', function() {
-//     if ($(this).is(':checked')){
-//       console.log($(this).val());
-//     }
-// });
-// }
-
-// $(watchCheckboxSelection);
