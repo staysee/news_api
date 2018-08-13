@@ -100,6 +100,7 @@ button {
   background-color: #FFEB3B;
   border: none;
   border-radius: 3px;
+  cursor: pointer;
   font-weight: bolder;
   padding: 5px;
   width: 70%;
