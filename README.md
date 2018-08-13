@@ -5,7 +5,6 @@
 1. [Introduction](#introduction)
 2. [How to Use](#how-to-use)
 3. [Technologies Used](#technologies-used)
-4. [Future Implementations](#future-implementations)
 
 **Live Demo:** [News Roulette](https://staysee.github.io/news_roulette)
 

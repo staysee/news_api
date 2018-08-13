@@ -2,5 +2,5 @@
 ![alt text](images/user_flow.png)
 
 ## Wireframes
-![alt text](images/wireframe-mobile.jpg)
-![alt text](images/wireframe-larger.jpg)
+![alt text](images/wireframe-mobile.JPG)
+![alt text](images/wireframe-larger.JPG)
