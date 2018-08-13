@@ -13,7 +13,7 @@
 
 If you are in a hurry to catch up on some news but don't want to waste time looking for something to read, let News Roulette do the picking for you! Search today's top headlines by category or simply select one or a few categories you are interested in. Every search will return up to 6 randomized articles to read! Click on the cards to get to the articles.
 
-![News Roulette Screenshot](images/screenshot.jpg)
+![News Roulette Screenshot](images/screenshot.JPG)
 
 ## How to Use
 
