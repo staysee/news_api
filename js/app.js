@@ -1,4 +1,4 @@
-const BASE_URL = 'http://newsapi.org/v2/';
+const BASE_URL = 'https://newsapi.org/v2/';
 const API_KEY = 'a9bef3e51f1f4273b2ba47ed41b5449d'
 
 // ----------
