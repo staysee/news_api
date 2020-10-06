@@ -1,5 +1,5 @@
-const BASE_URL = 'https://newsapi.org/v2/';
-const API_KEY = 'a9bef3e51f1f4273b2ba47ed41b5449d'
+const BASE_URL = 'https://gnews.io/api/v4/';
+const API_KEY = 'cbb78bca907814ac4fd92b5c424d2778'
 
 // ----------
 //  API CALL
@@ -16,13 +16,13 @@ function generateRandomArticleIndex(data, articlesToGenerate){
   let randomIndexes = [];
   let numResults = data.articles.length;
 
-  if (data.totalResults === 0){
-    $('.message').html(`There are ${data.totalResults} result(s) for your search.`);
+  if (data.totalArticles === 0){
+    $('.message').html(`There are ${data.totalArticles} result(s) for your search.`);
   }
 
   while (randomIndexes.length < articlesToGenerate){
-    let randomNumber = Math.floor(Math.random() * data.totalResults);
-    if (randomIndexes.indexOf(randomNumber) > -1 || randomNumber > 99){
+    let randomNumber = Math.floor(Math.random() * 10);
+    if (randomIndexes.indexOf(randomNumber) > -1 || randomNumber > 10){
       continue
     }
     randomIndexes[randomIndexes.length] = randomNumber;
@@ -31,15 +31,20 @@ function generateRandomArticleIndex(data, articlesToGenerate){
 }
 
 function renderResults(result){
-  let articleImage = result.urlToImage;
-  let articleDescription = result.description;
+  console.log(`result`, result)
+  let articleImage;
+  let articleDescription;
 
-  if (result.urlToImage == null || result.urlToImage == "" || result.urlToImage == undefined || result.urlToImage.match(/abcnews\.com\/images/)){
+  if (result.image == null || result.image == "" || result.image == undefined){
     articleImage = "./images/folded_newspaper.jpg";
+  } else {
+    articleImage = result.image;
   }
 
   if (result.description == null || result.description == "" || result.description == undefined){
     articleDescription = "No article description provided. Continue to article.";
+  } else {
+    articleDescription = result.description;
   }
 
   return `
@@ -60,12 +65,16 @@ function displayNewsSearchData(data){
   let articlesToGenerate = 6;
   let articleNumbers;
 
+  console.log(`data`, data);
   if (data.articles.length < articlesToGenerate){
     articlesToGenerate = data.articles.length;
     articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
   } else {
     articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
   }
+
+
+  console.log(`article numbers`, articleNumbers);
 
   for (let i=0; i < articleNumbers.length; i++){
     results.push(renderResults(data.articles[articleNumbers[i]]));

@@ -4,10 +4,9 @@ function searchTopHeadlines(query){
   const ENDPOINT_URL = BASE_URL + 'top-headlines';
   const queryK = {
     q: `${query}`,
-    sortBy: 'relevancy',
-    pageSize: 100,
     country: 'us',
-    apiKey: API_KEY
+    lang: 'en',
+    token: API_KEY
   }
   getDataFromApi(ENDPOINT_URL, queryK, displayNewsSearchData);
 }

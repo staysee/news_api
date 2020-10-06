@@ -27,4 +27,7 @@ Searching today's top headlines (keyword search) may produce zero results if the
 Select an article card to read the article on a new tab.
 
 ## Technologies Used
-News Roulette is build with News API, HTML, CSS, JavaScript, jQuery, GoogleFonts.
+News Roulette is build with GNews API, HTML, CSS, JavaScript, jQuery, GoogleFonts.
+
+### Update
+This project originally used the News API, but has switched to GNews API on 10/6/2020.
