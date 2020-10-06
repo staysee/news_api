@@ -31,7 +31,7 @@ function generateRandomArticleIndex(data, articlesToGenerate){
 }
 
 function renderResults(result){
-  console.log(`result`, result)
+
   let articleImage;
   let articleDescription;
 
@@ -65,16 +65,12 @@ function displayNewsSearchData(data){
   let articlesToGenerate = 6;
   let articleNumbers;
 
-  console.log(`data`, data);
   if (data.articles.length < articlesToGenerate){
     articlesToGenerate = data.articles.length;
     articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
   } else {
     articleNumbers = generateRandomArticleIndex(data, articlesToGenerate)
   }
-
-
-  console.log(`article numbers`, articleNumbers);
 
   for (let i=0; i < articleNumbers.length; i++){
     results.push(renderResults(data.articles[articleNumbers[i]]));

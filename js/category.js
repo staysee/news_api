@@ -5,7 +5,6 @@ function searchEverything(){
   let selectedCategory = $('input:checked').val();
 
   const queryE = {
-    // sources: `${getSources(selectCategories())}`,
     topic: `${selectCategories()}`,
     language: 'en',
     country: 'us',
@@ -23,41 +22,6 @@ function selectCategories(){
 
   return pickedCategories
 }
-
-// function categorySources(selection){
-//   let entertainmentSources = 'entertainment-weekly, mtv-news';
-//   let sportsSources = 'espn, fox-sports, talksport, bbc-sport, the-sport-bible, bleacher-report, nfl-news';
-//   let technologySources = 'techcrunch, recode, techradar, the-verge, engadget';
-//   let financeSources = 'financial-times, financial-post';
-//   let healthSciencesSources = 'new-scientist, medical-news-today';
-//   let travelSources = 'national-geographic';
-
-//   if(selection === "entertainment"){
-//     return entertainmentSources
-//   }
-//   if(selection === "sports"){
-//     return sportsSources
-//   }
-//   if(selection === "technology"){
-//     return technologySources
-//   }
-//   if(selection === "finance"){
-//     return financeSources
-//   }
-//   if(selection === "health-sciences"){
-//     return healthSciencesSources
-//   }
-//   if(selection === "travel"){
-//     return travelSources
-//   }
-// }
-
-// function getSources(categories, selection){
-//   let sources = categories.map(category => categorySources(category));
-
-//   return sources.join(", ");
-// }
-
 
 //EVENT HANDLER
 function watchCategorySubmit(){
