@@ -1,5 +1,4 @@
 //SEARCH BY CATEGORIES TO EVERYTHING
-
 function searchEverything(){
   const ENDPOINT_URL = BASE_URL + 'top-headlines';
   let selectedCategory = $('input:checked').val();
@@ -10,7 +9,6 @@ function searchEverything(){
     country: 'us',
     token: API_KEY
   }
-  console.log(queryE.topic)
   getDataFromApi(ENDPOINT_URL, queryE, displayNewsSearchData)
 }
 
