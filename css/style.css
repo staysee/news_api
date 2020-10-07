@@ -149,7 +149,7 @@ input:focus {
 .categories-checkboxes {
   display: grid;
   grid-template-areas: "left right";
-  margin: 15px auto;
+  margin: 7px auto;
   width: 80%;
 }
 
